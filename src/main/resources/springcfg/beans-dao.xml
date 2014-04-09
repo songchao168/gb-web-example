@@ -9,25 +9,5 @@
                     http://www.springframework.org/schema/tx
                     http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
-	<bean id="baseDao" class="org.bgi.commons.jdbc.BaseDao">
-	</bean>
-	
-	<bean id="PcenterDao" class="genebook.my.profile.userinfo.dao.impl.PcenterDaoImpl">
-	</bean>
-	
-	<bean id="checkResultDao" class="genebook.my.report.dao.impl.CheckResultDaoImpl">
-	</bean>
-	
-	<bean id="hpvReportDao" class="genebook.my.report.dao.impl.HpvReportDaoImpl">
-	</bean>
-	
-	<bean id="reportSampleDao" class="genebook.my.report.template.dao.ReportSampleDaoImpl">
-	</bean>
-	
-	<bean id="lginDaoImpl" class="genebook.my.profile.login.dao.impl.LoginDaoImpl">
-	</bean>
-	
-	<bean id="businessTypeDao" class="genebook.my.report.dao.impl.BusinessTypeDaoImpl"></bean>
-	<bean id="customerDao" class="genebook.my.profile.login.dao.impl.CustomerDaoImpl"></bean>
 	
 </beans>

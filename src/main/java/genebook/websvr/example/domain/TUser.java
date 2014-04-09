@@ -14,7 +14,7 @@ public class TUser implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO,generator = "uuid-string")
+//	@GeneratedValue(strategy=GenerationType.AUTO,generator = "uuid-string")
 	private String id;
 
 	private String name;

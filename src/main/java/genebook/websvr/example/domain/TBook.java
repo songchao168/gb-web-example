@@ -1,9 +1,17 @@
 package genebook.websvr.example.domain;
 
 import java.io.Serializable;
-import javax.persistence.*;
-import java.sql.Timestamp;
 import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.springframework.beans.factory.annotation.Value;
 
 
 /**
@@ -12,6 +20,7 @@ import java.math.BigDecimal;
  */
 @Entity
 @Table(name="T_BOOK")
+@GenericGenerator(name="uuid_s",strategy="uuid") 
 public class TBook implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -19,7 +28,8 @@ public class TBook implements Serializable {
 	private Timestamp createTime;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO,generator = "uuid-string")
+//	@GeneratedValue(strategy=GenerationType.AUTO,generator = "uuid-string")
+	@GeneratedValue(generator="uuid_s")
 	private String id;
 
 	private String isbn;
@@ -28,7 +38,7 @@ public class TBook implements Serializable {
 
 	private BigDecimal price;
 
-	@Column(name="\"STATE\"")
+	@Column(name="STATE")
 	private String state;
 
     public TBook() {

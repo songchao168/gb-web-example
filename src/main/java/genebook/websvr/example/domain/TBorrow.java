@@ -27,7 +27,7 @@ public class TBorrow implements Serializable {
 	private Date borrowDate;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO,generator = "uuid-string")
+//	@GeneratedValue(strategy=GenerationType.AUTO,generator = "uuid-string")
 	private String id;
 
     @Temporal( TemporalType.DATE)

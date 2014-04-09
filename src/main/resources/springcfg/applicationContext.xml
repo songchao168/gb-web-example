@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans
 xmlns="http://www.springframework.org/schema/beans"
+ xmlns:jpa="http://www.springframework.org/schema/data/jpa"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xmlns:context="http://www.springframework.org/schema/context"
  xmlns:aop="http://www.springframework.org/schema/aop"
@@ -9,6 +10,8 @@ xmlns="http://www.springframework.org/schema/beans"
  xmlns:mvc="http://www.springframework.org/schema/mvc"
  xsi:schemaLocation="http://www.springframework.org/schema/beans
                     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                    http://www.springframework.org/schema/data/jpa
+    				http://www.springframework.org/schema/data/jpa/spring-jpa-1.0.xsd
                     http://www.springframework.org/schema/context
                     http://www.springframework.org/schema/context/spring-context-3.0.xsd
                     http://www.springframework.org/schema/aop
@@ -19,6 +22,10 @@ xmlns="http://www.springframework.org/schema/beans"
     				http://cxf.apache.org/schemas/jaxws.xsd
     				http://www.springframework.org/schema/mvc 
 					http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+					
+	<!-- Scans for application @Components to deploy -->
+	<!-- <context:component-scan base-package="genebook.websvr.example" />	 -->
+					
   	<!-- Activates annotation-based bean configuration -->
 	<context:annotation-config />
 	
@@ -36,12 +43,9 @@ xmlns="http://www.springframework.org/schema/beans"
 		</property>
 	</bean>
 	
-	<!-- Scans for application @Components to deploy -->
-	<context:component-scan base-package="xxx.xxx" />
-
 	<!-- Instructs Spring to perfrom declarative transaction managemenet on annotated classes -->
 	<tx:annotation-driven />
-
+ 	<jpa:repositories base-package="genebook.websvr.example.*.dao"/> 
 	<!-- Drives transactions using local JPA APIs -->
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
@@ -59,9 +63,9 @@ xmlns="http://www.springframework.org/schema/beans"
 	    <!-- 配置数据源 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
     	<property name="driverClass" value="oracle.jdbc.driver.OracleDriver" />
-		<property name="jdbcUrl" value="${db.hims.jdbcUrl}" />
-		<property name="user" value="${db.hims.user}" />
-		<property name="password" value="${db.hims.password}" />
+		<property name="jdbcUrl" value="${db.url}" />
+		<property name="user" value="${db.username}" />
+		<property name="password" value="${db.password}" />
 		
 		<!-- 连接池中保留的最大连接数 -->
 		<property name="maxPoolSize" value="50" />
@@ -78,6 +82,31 @@ xmlns="http://www.springframework.org/schema/beans"
 		<!-- 连接池用完时,等待获取新连接的时间 (毫秒) -->
 		<property name="checkoutTimeout" value="30000"/>
     </bean>
+
+	<!-- GeneBook Oracle数据源事务 -->
+<!-- 	<bean id="genebookOracleTxManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    	<property name="dataSource" ref="genebookOracleDataSource" />
+    </bean>
+    <tx:advice id="genebookOracleTxAdvice" transaction-manager="genebookOracleTxManager">
+		<tx:attributes>
+			查
+			<tx:method name="find*" read-only="true"/>
+			增
+			<tx:method name="add*" propagation="REQUIRED" rollback-for="Throwable"/>
+			改
+			<tx:method name="update*" propagation="REQUIRED" rollback-for="Throwable"/>
+			删
+			<tx:method name="del*" propagation="REQUIRED" rollback-for="Throwable" />
+			执行XX
+			<tx:method name="exec*" propagation="REQUIRED" rollback-for="Throwable" />
+		</tx:attributes>
+	</tx:advice> -->
+	<!-- 事务切面作用于service层 -->
+<!--     <aop:config>
+		<aop:pointcut id="serviceOperation" expression="execution(public * genebook..service.*.*(..))" />
+		<aop:advisor advice-ref="genebookOracleTxAdvice"  pointcut-ref="serviceOperation" />
+	</aop:config> -->
+
 
 	   	
 	<bean id="defaultLobHandler"  
