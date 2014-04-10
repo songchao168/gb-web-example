@@ -12,9 +12,9 @@
 	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
 		<property name="definitions">
 			<list>
-				
-				<!--<value>/WEB-INF/tiles/tiles-definitions.xml</value>  -->
-	<!-- 			<value>/WEB-INF/view/pc/tiles/common.xml</value>
+				<value>/WEB-INF/views/pc/tiles/template.xml</value>
+				<value>/WEB-INF/views/pc/tiles/manage.xml</value>
+				<!-- 
 				<value>/WEB-INF/view/pc/tiles/health-apply.xml</value>
 				<value>/WEB-INF/view/pc/tiles/health-club.xml</value>
 				<value>/WEB-INF/view/pc/tiles/health-history.xml</value>

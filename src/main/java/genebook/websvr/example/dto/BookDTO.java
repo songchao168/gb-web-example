@@ -4,22 +4,22 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.beans.factory.annotation.Value;
 
 public class BookDTO {
 	private Timestamp createTime;
 	
 	private String id;
 
+	@Length(min=1,max=20, message="ISBN长度在1-20之间")
 	private String isbn;
 	
-	@NotEmpty
+	@NotEmpty(message="书名不能为空")
 	private String name;
 	
 	private BigDecimal price;
 	
-	@NotEmpty
 	private String state="0";
 
 	public Timestamp getCreateTime() {

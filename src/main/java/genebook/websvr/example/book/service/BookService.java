@@ -1,18 +1,20 @@
 package genebook.websvr.example.book.service;
 
+import java.util.List;
+
 import genebook.websvr.example.domain.TBook;
 import genebook.websvr.example.dto.BookDTO;
 
 public interface BookService {
 	
-	public String search();
+	public List<TBook> findAll();
 	
 	public TBook add(BookDTO bookDTO);
 	
-	public String update();
+	public TBook update(BookDTO book) throws BookNotFoundException;
 	
-	public String find();
+	public TBook findOne(String id);
 	
-	public String delete();
+	public TBook delete(String id)throws BookNotFoundException;
 
 }
