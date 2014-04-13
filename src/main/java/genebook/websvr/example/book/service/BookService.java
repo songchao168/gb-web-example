@@ -1,20 +1,46 @@
 package genebook.websvr.example.book.service;
 
-import java.util.List;
 
-import genebook.websvr.example.domain.TBook;
-import genebook.websvr.example.dto.BookDTO;
+import javax.jws.WebService;
 
+@WebService(targetNamespace = "http://service.book.example.appsvr.genebook/")
 public interface BookService {
 	
-	public List<TBook> findAll();
 	
-	public TBook add(BookDTO bookDTO);
+	/**
+	 * 
+	 * @return data:List<TBook>
+	 */
+	public String  findAll(String input);
 	
-	public TBook update(BookDTO book) throws BookNotFoundException;
+	/**
+	 * 
+	 * @param data:BookDTO
+	 * @return data:TBook
+	 */
+	public String add(String input);
 	
-	public TBook findOne(String id);
+	/**
+	 * 
+	 * @param data:BookDTO
+	 * @return data:TBook
+	 * @throws BookNotFoundException
+	 */
+	public String update(String input) throws BookNotFoundException;
 	
-	public TBook delete(String id)throws BookNotFoundException;
+	/**
+	 * 
+	 * @param data:id
+	 * @return data:TBook
+	 */
+	public String findOne(String input);
+	
+	/**
+	 * 
+	 * @param data:id
+	 * @return 
+	 * @throws BookNotFoundException
+	 */
+	public String delete(String input)throws BookNotFoundException;
 
 }

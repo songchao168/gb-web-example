@@ -17,4 +17,6 @@ http://cxf.apache.org/jaxws
 http://cxf.apache.org/schemas/jaxws.xsd">
 
 
+<jaxws:client id="bookService" endpointName="xxx1"  serviceClass="genebook.websvr.example.book.service.BookService" address="http://localhost:8080/gb-appsvr-example/ws/bookService?wsdl" />
+
 </beans>

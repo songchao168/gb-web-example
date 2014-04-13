@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>genebook.web</groupId>
-	<artifactId>gb-web-example</artifactId>
+	<artifactId>gb-web-example-ws</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>gb-web-example</name>
 
@@ -64,17 +64,17 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
-		        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>1.8.5</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
-            <scope>test</scope>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>1.8.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -83,36 +83,26 @@
 			<type>jar</type>
 			<scope>provided</scope>
 		</dependency>
+
 		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc6</artifactId>
-			<version>11.2.0.1.0</version>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
 		</dependency>
+		<!-- <dependency> <groupId>com.oracle</groupId> <artifactId>ojdbc6</artifactId> 
+			<version>11.2.0.1.0</version> </dependency> -->
 		<dependency>
 			<groupId>c3p0</groupId>
 			<artifactId>c3p0</artifactId>
 			<version>0.9.1.2</version>
 			<type>jar</type>
 		</dependency>
-		<dependency>
-			<groupId>bgi.commons.core</groupId>
-			<artifactId>bgi.commons.core</artifactId>
-			<version>2.0.0</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>bgi.commons.jdbc</groupId>
-			<artifactId>bgi.commons.jdbc</artifactId>
-			<version>2.0.0</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>bgi.commons.ws</groupId>
-			<artifactId>bgi.commons.ws</artifactId>
-			<version>2.0.0</version>
-			<scope>compile</scope>
-		</dependency>
+		<!-- <dependency> <groupId>bgi.commons.core</groupId> <artifactId>bgi.commons.core</artifactId> 
+			<version>2.0.0</version> <type>jar</type> <scope>compile</scope> </dependency> -->
+		<!-- <dependency> <groupId>bgi.commons.jdbc</groupId> <artifactId>bgi.commons.jdbc</artifactId> 
+			<version>2.0.0</version> <scope>compile</scope> </dependency> <dependency> 
+			<groupId>bgi.commons.ws</groupId> <artifactId>bgi.commons.ws</artifactId> 
+			<version>2.0.0</version> <scope>compile</scope> </dependency> -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
@@ -181,11 +171,11 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
-            <version>1.0.2.RELEASE</version>
-        </dependency>		
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>1.0.2.RELEASE</version>
+		</dependency>
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
@@ -203,18 +193,10 @@
 			<artifactId>cxf-rt-transports-http</artifactId>
 			<version>${cxf.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>bgi.sso.client</groupId>
-			<artifactId>bgi-sso-client-web</artifactId>
-			<version>1.0.0</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>bgi-sso-partner-client-web-1.0.0</groupId>
-			<artifactId>bgi-sso-partner-client-web-1.0.0</artifactId>
-			<version>1.0.0</version>
-			<scope>compile</scope>
-		</dependency>
+		<!-- <dependency> <groupId>bgi.sso.client</groupId> <artifactId>bgi-sso-client-web</artifactId> 
+			<version>1.0.0</version> <scope>compile</scope> </dependency> <dependency> 
+			<groupId>bgi-sso-partner-client-web-1.0.0</groupId> <artifactId>bgi-sso-partner-client-web-1.0.0</artifactId> 
+			<version>1.0.0</version> <scope>compile</scope> </dependency> -->
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -275,31 +257,21 @@
 			<artifactId>javase</artifactId>
 			<version>2.2</version>
 		</dependency>
-		<dependency>
-			<groupId>genebook.common</groupId>
-			<artifactId>genebook-common-tag</artifactId>
-			<version>1.0.0</version>
-		</dependency>
+		<!-- <dependency> <groupId>genebook.common</groupId> <artifactId>genebook-common-tag</artifactId> 
+			<version>1.0.0</version> </dependency> -->
 
 		<!-- 框架依赖 end -->
 
 		<!-- genebook-sso-1.0.0start -->
-		<dependency>
-			<groupId>genebook-sso</groupId>
-			<artifactId>genebook-sso-1.0.0</artifactId>
-			<version>1.0.0</version>
-			<scope>compile</scope>
-		</dependency>
+		<!-- <dependency> <groupId>genebook-sso</groupId> <artifactId>genebook-sso-1.0.0</artifactId> 
+			<version>1.0.0</version> <scope>compile</scope> </dependency> -->
 		<!-- genebook-sso-1.0.0end -->
 
 
-		<dependency>
-			<groupId>bgi.commons.web</groupId>
-			<artifactId>bgi.commons.web</artifactId>
-			<version>2.0.0</version>
-		</dependency>
+		<!-- <dependency> <groupId>bgi.commons.web</groupId> <artifactId>bgi.commons.web</artifactId> 
+			<version>2.0.0</version> </dependency> -->
 		<!-- log -->
-			<dependency>
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>${slf4j-version}</version>
@@ -339,19 +311,19 @@
 			</exclusions>
 			<scope>runtime</scope>
 		</dependency>
-		
+
 	</dependencies>
 
 
 	<build>
-		<finalName>gb-web-example</finalName>
+		<finalName>gb-web-example-ws</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat6-maven-plugin</artifactId>
 				<version>2.1</version>
 				<configuration>
-					<port>8080</port>
+					<port>8090</port>
 				</configuration>
 			</plugin>
 		</plugins>
